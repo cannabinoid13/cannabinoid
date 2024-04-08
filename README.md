@@ -1,6 +1,6 @@
 # Cannabinoid Synergistic Effect Analysis
 
-This repository contains two Python files in total, one that clusters with the DBSCAN algorithm using only two data (and one title) (DBSCAN.py) and one that analyses the relationship between three data sets (and one title) with NRI (xxxxx). The xxxxxx file also performs clustering in parallel with NRI.
+This repository contains two Python files in total, one that clusters with the DBSCAN algorithm using only two data (and one title) (DBSCAN.py) and one that analyses the relationship between three data sets (and one title) with NRI (pencereli_iliskisellik.py). The pencereli_iliskisellik.py file also performs clustering in parallel with NRI.
 
 With these codes, it is analysed how the Align Score, Vector Score and Fitness Score data obtained as a result of processing the frames obtained from molecular dynamics simulations with 3D pharmacophore modelling method, how the relationship between the frames is established and how they are clustered. 
 
@@ -13,9 +13,6 @@ Data Processing: The data is represented as a list, where each element contains 
 
 ### Requirements
 Python 3.7
-
-### Hardware
-At least intel i5 processor (12th generation)
 
 ### Before Using Codes (Preparation Phase)
 
