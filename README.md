@@ -1,5 +1,4 @@
-# cannabinoid
-Cannabinoid NRI
+# Cannabinoid Synergistic Effect Analysis
 
 With these codes, it is useful to analyse how the Align Score, Vector Score and Fitness Score data obtained as a result of processing the frames obtained from molecular dynamics simulations with 3D pharmacophore modelling method establishes a relationship between the frames.
 
@@ -30,13 +29,24 @@ DBSCAN.py
 
 In this way, you will graphically obtain a visual representation of the clusters between two data types using the DBSCAN algorithm.
 
-For neural relational inference (NRI) analysis, you need to use three data sets (Align Score, Vector Score and Fitness Score). The created model will learn the relationship network between the elements in the three data sets within the framework of the determined parameters and will give the result output.
+For neural relational inference (NRI) analysis, you need to use three data sets (Align Score, Vector Score and Fitness Score). The created model will learn the relationship network between the elements in the three data sets within the framework of the determined parameters and will give the result output. You can change the learning parameters according to your computer hardware. Using epochs=10000, lr=0.0001, hidden_dim=64000 codes as they are will put extra load on your processor. You can use the codes as they are to make a strong analysis of the relationality.
 
 
 ```
 pencereli_iliskisellik.py
 
 ```
+
+As a result, you will get a graph showing the placement of the Align Score, Vector Score and Fitness Score data in three-dimensional space in a three-dimensional graph. The fourth dimension of this graph is a scale showing the relationality analysed with NRI and the data is coloured according to this scale in the three-dimensional graph.
+
+### Reference
+We thank the official implementation of neural relational inference at
+https://github.com/ethanfetaya/NRI
+
+Neural relational inference to learn long-range allosteric interactions in proteins from molecular dynamics simulations.**  
+Jingxuan Zhu,  Juexin Wang, Weiwei Han,  Dong Xu,
+Nature communications 13, no. 1 (2022): 1-16.
+https://www.nature.com/articles/s41467-022-29331-3
 
 
 
