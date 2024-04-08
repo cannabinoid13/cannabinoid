@@ -10,7 +10,33 @@ Data Processing: The data is represented as a list, where each element contains 
 
 ![DBSCAN_NRI_toplu](https://github.com/cannabinoid13/cannabinoid/assets/166438571/0050c557-74e8-4ffb-98d8-1d6dba5fb00f)
 
-Requirements
+### Requirements
 Python 3.7
+
+### Hardware
+At least intel i5 processor (12th generation)
+
+### Before Using Codes (Preparation Phase)
+
+After obtaining the Trajactory windows, 3D pharmacophore modelling is performed for each frame with a suitable software to obtain Align Score, Vector Score and Fitness Score data.
+
+### Use of Codes
+
+After obtaining Align Score, Vector Score and Fitness Score data, enter Align Score and Fitness Score into DBSACN.py (or any two data types for which clustering status is desired)
+
+```
+DBSCAN.py
+```
+
+In this way, you will graphically obtain a visual representation of the clusters between two data types using the DBSCAN algorithm.
+
+For neural relational inference (NRI) analysis, you need to use three data sets (Align Score, Vector Score and Fitness Score). The created model will learn the relationship network between the elements in the three data sets within the framework of the determined parameters and will give the result output.
+
+
+```
+pencereli_iliskisellik.py
+
+```
+
 
 
