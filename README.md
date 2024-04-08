@@ -1,6 +1,8 @@
 # Cannabinoid Synergistic Effect Analysis
 
-With these codes, it is useful to analyse how the Align Score, Vector Score and Fitness Score data obtained as a result of processing the frames obtained from molecular dynamics simulations with 3D pharmacophore modelling method establishes a relationship between the frames.
+This repository contains two Python files in total, one that clusters with the DBSCAN algorithm using only two data (and one title) (DBSCAN.py) and one that analyses the relationship between three data sets (and one title) with NRI (xxxxx). The xxxxxx file also performs clustering in parallel with NRI.
+
+With these codes, it is analysed how the Align Score, Vector Score and Fitness Score data obtained as a result of processing the frames obtained from molecular dynamics simulations with 3D pharmacophore modelling method, how the relationship between the frames is established and how they are clustered. 
 
 Data Example: The data example contains the data points and their titles. Each data point consists of a position in three-dimensional space and a fourth dimension represented by a score.
 
@@ -47,6 +49,8 @@ Neural relational inference to learn long-range allosteric interactions in prote
 Jingxuan Zhu,  Juexin Wang, Weiwei Han,  Dong Xu,
 Nature communications 13, no. 1 (2022): 1-16.
 https://www.nature.com/articles/s41467-022-29331-3
+
+Erich Schubert, Jörg Sander, Martin Ester, Hans Peter Kriegel, and Xiaowei Xu. 2017. DBSCAN Revisited, Revisited: Why and How You Should (Still) Use DBSCAN. ACM Trans. Database Syst. 42, 3, Article 19 (September 2017), 21 pages. https://doi.org/10.1145/3068335
 
 
 
