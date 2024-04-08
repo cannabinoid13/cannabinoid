@@ -1,2 +1,10 @@
 # cannabinoid
 Cannabinoid NRI
+
+With these codes, it is useful to analyse how the Align Score, Vector Score and Fitness Score data obtained as a result of processing the frames obtained from molecular dynamics simulations with 3D pharmacophore modelling method establishes a relationship between the frames.
+
+Data Example: The data example contains the data points and their titles. Each data point consists of a position in three-dimensional space and a fourth dimension represented by a score.
+
+Data Processing: The data is represented as a list, where each element contains the title and four feature values. This data is then converted into an appropriate numpy array. Training the NRI Model: The train_nri function is used to train the data with the NRI model. The model attempts to learn the relationships between the data points. Creating the Plot: A 3D scatter plot is used to visualize the data. Each point represents an example in the dataset. The color of the points represents the relational scores predicted by the NRI model. Additionally, points containing CBD are emphasized with different shades of color. Displaying Clustering Results in a Separate Window: Using the inset_axes function, a small window is added below the main scatter plot. This window provides a more detailed view of the clustering results and better visualizes the relational scores of the points on the main graph. This code learns the relationships between examples in the dataset using the NRI model and uses matplotlib library to visualize and analyze them. It also creates an additional window on the graph to show clustering results in more detail.
+
+
