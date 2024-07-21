@@ -17,7 +17,7 @@ def dbscan(X, eps, min_samples):
         visited.add(i)
         neighbors = find_neighbors(X, x, eps)
         if len(neighbors) < min_samples:
-            clusters.append([i])  # Her nokta kendi kümesine dahil edilir
+            clusters.append([i])  # Each point is included in its own cluster
         else:
             cluster = expand_cluster(X, i, neighbors, eps, min_samples, visited)
             clusters.append(cluster)
@@ -327,24 +327,24 @@ Cannabigerol(CBG)	1.179	0.619
 Dronabinol(Delta-9-THC)	0.859	1.618
 (-)-Cannabidiol(CBD)	1.172	1.102
 
-"""  # Verilerin tamamını buraya yapıştırın
+"""
 
-# Verileri düzenleme ve uygun formata dönüştürme
+# Organize data and convert it to the appropriate format
 lines = data.strip().split("\n")
 values = [[float(val) for val in line.split()[1:]] for line in lines]
 
-# Verileri ölçekleme
+# Scaling data
 X = np.array(values)
 
-# DBSCAN modeli uygulama
+# DBSCAN model implementation
 eps = 0.1
 min_samples = 2
 clusters = dbscan(X, eps, min_samples)
 
-# Renk skalası oluşturma
+# Create a color scale
 colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'orange', 'purple', 'pink', 'brown', 'gray', 'olive', 'cyan']
 
-# Görselleştirme
+# Visualization
 fig, ax = plt.subplots(figsize=(8, 6))
 for i, cluster in enumerate(clusters):
     if cluster is not None:
@@ -352,13 +352,13 @@ for i, cluster in enumerate(clusters):
         ax.scatter(cluster_points[:, 0], cluster_points[:, 1], c=colors[i % len(colors)], label=f'Cluster {i}', s=50,
                    alpha=0.5)
 
-# İsimleri ekleme
+# Adding names
 names = [line.split()[0] for line in lines]
 for i, name in enumerate(names):
     if name == "(-)-Cannabidiol(CBD)":
         ax.text(X[i, 0], X[i, 1], "CBD", fontsize=8)
 
-# İnteraktif etiketler
+# Interactive labels
 mplcursors.cursor(hover=True).connect("add", lambda sel: sel.annotation.set_text(names[sel.target.index]))
 
 plt.title('DBSCAN Clustering')
