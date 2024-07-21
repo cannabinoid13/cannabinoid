@@ -21,8 +21,8 @@ class NRIModel(nn.Module):
 
 # DBSCAN benzeri kümeleme için NRI kullanarak modeli eğitme
 def train_nri(X, epochs=10000, lr=0.0001, hidden_dim=64000):
-    input_dim = X.shape[1]  # Giriş boyutu, veri özellik sayısına eşittir
-    output_dim = 1  # NRI çıktısı, iki nokta arasındaki ilişkiyi ifade eden bir skor olabilir
+    input_dim = X.shape[1]  # Input size equals number of data feature
+    output_dim = 1  # The NRI output can be a score expressing the relationship between two points
 
     model = NRIModel(input_dim, hidden_dim, output_dim)
     optimizer = optim.Adam(model.parameters(), lr=lr)
@@ -31,7 +31,7 @@ def train_nri(X, epochs=10000, lr=0.0001, hidden_dim=64000):
     for epoch in range(epochs):
         optimizer.zero_grad()
         output = model(X)
-        loss = criterion(output, torch.zeros_like(output))  # Basit bir kayıp fonksiyonu, modelin öğrenmesini sağlar
+        loss = criterion(output, torch.zeros_like(output))  # A simple loss function allows the model to learn
         loss.backward()
         optimizer.step()
 
@@ -331,19 +331,19 @@ X = np.array(values)
 # NRI modelini eğitme
 model = train_nri(torch.tensor(X).float())
 
-# Eğitilmiş modeli kullanarak örnekler arasındaki ilişkileri tahmin etme
+# Predict relationships between instances using the trained model
 relationships = model(torch.tensor(X).float())
 
-# Kümeleme yapmak için örnekler arasındaki ilişkileri kullanma
-# Örnek olarak, eşik değeri kullanarak ilişkileri bir kümeleme algoritması ile etiketleyebilirsiniz.
+# Using relationships between instances to cluster
+# For example, you can label relationships with a clustering algorithm using a threshold value.
 
-# Dördüncü boyutu renk olarak temsil ederek 3D scatter plot oluşturma
+# Create a 3D scatter plot by representing the fourth dimension as a color
 colors = relationships.squeeze().tolist()
 
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 
-# CBD olan noktaları ve onların ilişkiselliğini belirleme
+# Identify CBD hotspots and their relevance
 cbd_indices = [i for i, title in enumerate(titles) if "CBD" in title]
 cbd_colors = [color for i, color in enumerate(colors) if i in cbd_indices]
 
@@ -365,7 +365,7 @@ ax.set_zlabel('Fitness Score')
 # Kümeleme sonuçlarını ayrı bir pencerede gösterme
 ax_inset = inset_axes(ax, width="30%", height="30%", loc='upper left')
 ax_inset.scatter(X[:, 0], X[:, 1], c=colors, cmap='plasma', alpha=0.5)
-ax_inset.scatter(X[cbd_indices, 0], X[cbd_indices, 1], c='red', alpha=0.5)  # CBD olanları kırmızı olarak göster
+ax_inset.scatter(X[cbd_indices, 0], X[cbd_indices, 1], c='red', alpha=0.5)  # Show CBD ones in red
 ax_inset.set_xticks([])
 ax_inset.set_yticks([])
 ax_inset.set_title('Clusters')
